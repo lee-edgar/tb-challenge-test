@@ -1,1 +1,341 @@
-nul
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TREAT-MMTB 2026 | MICCAI Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg-alt:#f8f9fb;--bg-hero:linear-gradient(180deg,#f0f4f8,#fff);--surface:#fff;--border:#e2e8f0;--border-light:#eef2f6;--primary:#1a56db;--primary-light:#e8effc;--primary-dark:#1442a8;--accent:#0d9488;--accent-light:#e6f7f5;--warm:#d97706;--red:#dc2626;--text:#1e293b;--text-secondary:#475569;--text-muted:#94a3b8;--heading:#0f172a}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:15px}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}nav.scrolled{box-shadow:0 1px 8px rgba(0,0,0,.06)}.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;color:var(--heading);text-decoration:none;display:flex;align-items:center;gap:.6rem}.nav-logo-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--primary);color:#fff;border-radius:6px;font-family:'Inter';font-size:.65rem;font-weight:700}.nav-links{display:flex;gap:.1rem;list-style:none}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.82rem;font-weight:500;padding:.4rem .7rem;border-radius:6px;transition:all .15s}.nav-links a:hover{color:var(--primary);background:var(--primary-light)}.nav-cta{background:var(--primary)!important;color:#fff!important;font-weight:600!important;padding:.45rem 1rem!important;border-radius:6px!important}.nav-cta:hover{background:var(--primary-dark)!important}.hamburger{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text)}
+.hero{background:var(--bg-hero);padding:7rem 2rem 4rem;text-align:center;border-bottom:1px solid var(--border)}.hero-inner{max-width:800px;margin:0 auto}.hero-badge{display:inline-block;background:var(--primary-light);color:var(--primary);font-size:.78rem;font-weight:600;padding:.35rem 1rem;border-radius:100px;margin-bottom:1.5rem}.hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:var(--heading);line-height:1.2;margin-bottom:.5rem}.hero .full-name{font-size:.92rem;color:var(--text-muted);font-style:italic;margin-bottom:1.25rem;line-height:1.6}.hero-desc{font-size:1.02rem;color:var(--text-secondary);max-width:620px;margin:0 auto 2rem;line-height:1.8}.hero-meta{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:.88rem;color:var(--text-muted);margin-bottom:2rem}.hero-meta span{display:flex;align-items:center;gap:.4rem}.hero-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:7px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Inter'}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-outline{background:var(--surface);color:var(--text);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+section{padding:4rem 2rem}.container{max-width:900px;margin:0 auto}.section-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;color:var(--primary);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}.section-title{font-family:'Source Serif 4',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--heading);margin-bottom:.75rem}.section-desc{color:var(--text-secondary);font-size:.95rem;max-width:650px;margin-bottom:2.5rem;line-height:1.8}.bg-alt{background:var(--bg-alt)}.divider{height:1px;background:var(--border)}
+.overview-prose{margin-bottom:3rem}.overview-prose p{color:var(--text-secondary);font-size:.93rem;line-height:1.85;margin-bottom:1.25rem;text-align:justify;hyphens:auto}.overview-prose .lead{font-size:1.02rem;color:var(--text);line-height:1.8}.overview-prose ul{color:var(--text-secondary);font-size:.93rem;line-height:1.85;padding-left:1.25rem;margin:.5rem 0 1.25rem}.overview-prose ul li{margin-bottom:.4rem}.overview-highlight{background:var(--bg-alt);border-left:3px solid var(--primary);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}.overview-highlight p{margin:0;font-size:.9rem}.overview-subsection{margin-top:2rem}.overview-subsection h3{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:700;color:var(--heading);margin-bottom:.6rem}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}.ov-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:border-color .2s}.ov-card:hover{border-color:var(--primary)}.ov-card .icon{font-size:1.5rem;margin-bottom:.75rem}.ov-card h3{font-size:.92rem;font-weight:600;color:var(--heading);margin-bottom:.4rem}.ov-card p{font-size:.85rem;color:var(--text-secondary);line-height:1.7}
+.tasks-split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}.task-col{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.75rem;display:flex;flex-direction:column}.task-col .task-tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;padding:.3rem .7rem;border-radius:4px;display:inline-block;width:fit-content}.task-col .task-tag.t1{background:var(--primary-light);color:var(--primary)}.task-col .task-tag.t2{background:var(--accent-light);color:var(--accent)}.task-col h3{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.4rem}.task-col .objective{color:var(--primary);font-size:.84rem;font-style:italic;margin-bottom:1rem;line-height:1.6}.task-col p{color:var(--text-secondary);font-size:.84rem;line-height:1.75;margin-bottom:.75rem}.task-col h4{font-size:.82rem;font-weight:600;color:var(--heading);margin-top:1rem;margin-bottom:.35rem}.task-col ul{color:var(--text-secondary);font-size:.84rem;line-height:1.8;padding-left:1.1rem}.metric-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:.15rem .55rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;font-weight:500;margin:.15rem .1rem}.metric-tag.t2{background:var(--accent-light);color:var(--accent)}.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:.6rem}.data-cell{background:var(--bg-alt);border:1px solid var(--border-light);border-radius:8px;padding:.7rem .85rem}.data-cell .label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.2rem}.data-cell .value{font-size:1.15rem;font-weight:700;color:var(--heading)}.data-cell .desc{font-size:.7rem;color:var(--text-muted);margin-top:.1rem}.task-note{font-size:.78rem;color:var(--text-muted);font-style:italic;margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--border-light);line-height:1.6}
+.curation-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.curation-placeholder{background:var(--bg-alt);border:2px dashed var(--border);border-radius:10px;padding:3rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px}.curation-placeholder .ph-icon{font-size:2rem;margin-bottom:.75rem;opacity:.5}.curation-placeholder .ph-label{font-size:.88rem;font-weight:600;color:var(--text-muted);margin-bottom:.25rem}.curation-placeholder .ph-desc{font-size:.78rem;color:var(--text-muted)}
+.sched-table{width:100%;border-collapse:collapse;margin-top:1.5rem}.sched-table th{text-align:left;font-size:.72rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:.6rem .8rem;border-bottom:2px solid var(--border)}.sched-table td{padding:.75rem .8rem;border-bottom:1px solid var(--border-light);font-size:.88rem}.sched-table td:first-child{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--primary);white-space:nowrap;width:220px;font-weight:500}.sched-table tr.phase-row{background:var(--primary-light)}.sched-table tr.phase-row td{font-weight:600;color:var(--primary-dark)}
+.eval-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}.eval-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem}.eval-card .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}.eval-card h3{font-size:.95rem;font-weight:600;margin-bottom:.5rem}.eval-card p,.eval-card ul{font-size:.86rem;color:var(--text-secondary);line-height:1.75}.eval-card ul{padding-left:1.1rem}
+.rule-item{display:flex;gap:.85rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--border-light)}.rule-item:last-child{border-bottom:none}.rule-num{font-family:'IBM Plex Mono',monospace;font-size:.75rem;font-weight:600;color:var(--primary);background:var(--primary-light);width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.rule-item h4{font-size:.88rem;font-weight:600;margin-bottom:.15rem}.rule-item p{font-size:.84rem;color:var(--text-secondary);line-height:1.7}
+.prize-task-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;margin-top:2rem}.prize-task-header:first-of-type{margin-top:0}.prize-task-header h3{font-size:.92rem;font-weight:600;color:var(--heading)}.prize-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}.prize-card{border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;background:var(--surface);position:relative;overflow:hidden}.prize-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}.prize-card.gold{border-color:#e5c07a}.prize-card.gold::before{background:linear-gradient(90deg,#d4a843,#f0d078)}.prize-card.silver{border-color:#c0c8d0}.prize-card.silver::before{background:linear-gradient(90deg,#a0aab4,#cdd4dc)}.prize-card.bronze{border-color:#c8a882}.prize-card.bronze::before{background:linear-gradient(90deg,#a87e54,#d4b48c)}.prize-card .rank{font-size:1.75rem;margin-bottom:.3rem}.prize-card .amount{font-family:'Source Serif 4',serif;font-size:1.4rem;font-weight:700;color:var(--heading)}.prize-card .place{font-size:.78rem;color:var(--text-muted)}.award-policy{background:var(--bg-alt);border:1px solid var(--border-light);border-radius:8px;padding:1.25rem 1.5rem;margin-top:1.5rem}.award-policy h4{font-size:.88rem;font-weight:600;color:var(--heading);margin-bottom:.5rem}.award-policy p{font-size:.86rem;color:var(--text-secondary);line-height:1.8}.prize-extra{margin-top:1.25rem;font-size:.86rem;color:var(--text-secondary);line-height:1.8}
+.reg-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;text-align:center;margin-top:1.5rem}.reg-box h3{font-family:'Source Serif 4',serif;font-size:1.25rem;font-weight:700;margin-bottom:.75rem}.reg-box>p{color:var(--text-secondary);font-size:.92rem;max-width:450px;margin:0 auto 1.5rem}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem;text-align:left}.step{background:var(--bg-alt);border:1px solid var(--border-light);border-radius:8px;padding:1rem}.step .num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--primary);font-weight:600;margin-bottom:.4rem}.step h4{font-size:.84rem;font-weight:600;margin-bottom:.2rem}.step p{font-size:.76rem;color:var(--text-muted)}
+.day-table{width:100%;border-collapse:collapse;margin-top:1rem}.day-table th{text-align:left;font-size:.72rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:.6rem .8rem;border-bottom:2px solid var(--border)}.day-table td{padding:.7rem .8rem;border-bottom:1px solid var(--border-light);font-size:.88rem}.day-table td:first-child{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--primary);font-weight:500;width:150px}
+.org-label{font-size:.84rem;font-weight:600;color:var(--primary);margin-top:1.5rem;margin-bottom:.75rem}.org-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.75rem;margin-bottom:.25rem}.org-item{display:flex;gap:.75rem;align-items:flex-start;padding:.85rem 1rem;border:1px solid var(--border-light);border-radius:8px;background:var(--surface)}.org-av{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}.org-av.academic{background:var(--primary)}.org-av.clinical{background:var(--accent)}.org-av.industry{background:var(--warm)}.org-av.society{background:var(--red)}.org-item h4{font-size:.84rem;font-weight:600;margin-bottom:.05rem}.org-item .role{font-size:.72rem;color:var(--primary);font-weight:500}.org-item .aff{font-size:.75rem;color:var(--text-muted)}.org-item .members{font-size:.72rem;color:var(--text-muted);font-style:italic}.logos{display:flex;justify-content:center;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border-light)}.logo-ph{padding:.4rem .8rem;border:1px dashed var(--border);border-radius:6px;font-size:.65rem;color:var(--text-muted)}
+.contact-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.75rem;margin-top:1.5rem}.contact-row p{font-size:.88rem;color:var(--text-secondary)}.contact-links{display:flex;gap:.5rem}.contact-links a{padding:.4rem .85rem;border-radius:6px;border:1px solid var(--border);color:var(--primary);text-decoration:none;font-size:.82rem;font-weight:500;transition:all .15s}.contact-links a:hover{background:var(--primary-light);border-color:var(--primary)}
+footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:.75rem}.overview-grid,.prize-row{grid-template-columns:1fr}.eval-grid,.tasks-split,.curation-grid{grid-template-columns:1fr}.data-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.hero-meta{flex-direction:column;align-items:center;gap:.5rem}section{padding:3rem 1.25rem}}
+.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="#" class="nav-logo"><span class="nav-logo-mark">TB</span> TREAT-MMTB 2026</a><button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><ul class="nav-links"><li><a href="#overview">Overview</a></li><li><a href="#tasks">Tasks</a></li><li><a href="#dataset">Dataset</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#evaluation">Evaluation</a></li><li><a href="#rules">Rules</a></li><li><a href="#prizes">Prizes</a></li><li><a href="#organizers">Organizers</a></li><li><a href="#registration" class="nav-cta">Register</a></li></ul></div></nav>
+
+<section class="hero"><div class="hero-inner">
+<div class="hero-badge">MICCAI 2026 Challenge</div>
+<h1>TREAT-MMTB 2026</h1>
+<p class="full-name">Transformative Research and Efficient AI Technologies<br>for Multimodal Management of Tuberculosis</p>
+<p class="hero-desc">
+    A MICCAI 2026 challenge addressing critical gaps in TB care through AI-driven cavity segmentation and multimodal severity scoring on chest X-rays. Built on multi-center data from Korea, Mongolia, Peru, and the Philippines, enabling clinically generalizable models for diverse healthcare settings.
+</p>
+<div class="hero-meta"><span>📍 ADNEC Centre, Abu Dhabi</span><span>📅 October 4–8, 2026</span><span>⏱ Half-day Event</span></div>
+<div class="hero-actions"><a href="#registration" class="btn btn-primary">Register Now →</a><a href="https://github.com/lee-edgar/tb-challenge-test" target="_blank" class="btn btn-outline">GitHub Repository</a></div>
+</div></section>
+
+<!-- OVERVIEW -->
+<section id="overview"><div class="container">
+<div class="section-label">Overview</div>
+<h2 class="section-title">Challenge Background</h2>
+<div class="overview-prose">
+<p class="lead">Pulmonary tuberculosis (TB) remains a critical global health challenge, characterized by high morbidity and mortality. Chest X-ray (CXR) examination is an essential tool for TB screening, triage, and diagnosis. Accurate disease diagnosis and identification of TB lesions on CXRs, such as cavities, are crucial for optimizing treatment, monitoring patient outcomes, and allocating resources efficiently — particularly in resource-constrained settings.</p>
+<div class="overview-highlight"><p><strong>Why cavities matter —</strong> The presence of a thick-walled cavitary lesion in the upper lobes strongly favors active pulmonary tuberculosis, particularly post-primary (reactivation) disease. Such cavitation typically reflects caseous necrosis with subsequent drainage into the bronchial tree, creating an air-filled space that serves as a surrogate marker of high mycobacterial burden.</p></div>
+<p>Since these cavitary foci frequently communicate with airways, patients with cavitary TB are more likely to exhibit smear- and culture-positive sputum, making the lesion a critical indicator of increased infectiousness and heightened transmission risk. While these radiological features are crucial indicators of TB severity, visual interpretation of CXRs is time-intensive and dependent on radiologist expertise, which may not always be available.</p>
+<div class="overview-subsection"><h3>Challenge Design</h3>
+<p>This challenge addresses these gaps by introducing two innovative tasks:</p>
+<ul><li><strong>Task 1</strong> focuses on <em>cavity detection and segmentation</em>, using advanced deep learning techniques to identify and quantify high-risk cavities in CXRs.</li><li><strong>Task 2</strong> implements a <em>multimodal approach for Timika score prediction</em>, integrating radiological features from CXRs with clinical metadata. By automating the Timika score — a validated radiographic scoring system for TB severity — the model provides a standardized, quantitative measure of disease extent.</li></ul></div>
+<div class="overview-subsection"><h3>Expected Impact</h3>
+<p>From a <strong>biomedical perspective</strong>, this framework enhances diagnostic precision and enables consistent longitudinal monitoring. From a <strong>technical perspective</strong>, it leverages state-of-the-art machine learning to provide scalable, explainable tools for diverse clinical settings. The anticipated impact includes streamlining personalized treatment planning, reducing the burden on healthcare professionals, and bridging the gap in global TB care through automated, high-fidelity diagnostics.</p></div>
+</div>
+<div class="overview-grid">
+<div class="ov-card"><div class="icon">🫁</div><h3>Task 1: Cavity Detection & Segmentation</h3><p>Deep learning–based detection and segmentation of cavitary lesions from CXR, targeting high-risk indicators of TB severity and infectiousness.</p></div>
+<div class="ov-card"><div class="icon">🔬</div><h3>Task 2: Multimodal TB Diagnosis</h3><p>Timika score prediction through multimodal fusion of CXR imaging and clinical metadata for quantitative TB severity assessment.</p></div>
+<div class="ov-card"><div class="icon">🌍</div><h3>Multi-Center Validation</h3><p>External validation across 5 international sites — Korea, Mongolia, Peru, and the Philippines — ensuring clinical generalizability.</p></div>
+</div></div></section>
+
+<div class="divider"></div>
+
+<!-- TASKS -->
+<section id="tasks" class="bg-alt"><div class="container">
+<div class="section-label">Tasks</div>
+<h2 class="section-title">Challenge Tasks</h2>
+<div class="section-desc">Two complementary tasks addressing different aspects of TB assessment. Participants may enter one or both. Dual-task winners are eligible for prizes in both tracks.</div>
+<div class="tasks-split">
+<div class="task-col">
+<span class="task-tag t1">Task 1</span>
+<h3>Cavity Detection and Segmentation</h3>
+
+<h4>Goal</h4>
+<p>Build a model that determines whether a cavitary lesion is present on a frontal chest X-ray and segments the lesion when present.</p>
+
+<h4>Why it matters</h4>
+<p>Cavities are a key imaging marker of pulmonary tuberculosis severity and are strongly associated with bacterial burden, transmission risk, and treatment outcome. Automated cavity analysis can support more standardized and scalable TB assessment.</p>
+
+<h4>What you need to solve</h4>
+<p>Participants must address two linked tasks:</p>
+<ul>
+<li><strong>Detection:</strong> decide whether a cavity is present or absent on the input CXR</li>
+<li><strong>Segmentation:</strong> if present, delineate the cavity boundary accurately</li>
+</ul>
+<p>Your method should be robust to variation in lesion appearance, size, location, and image quality.</p>
+<!--<h4>Metrics</h4><div class="mt-1"><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div>-->
+</div>
+<div class="task-col">
+<span class="task-tag t2">Task 2</span>
+<h3>Multimodal Timika Score Prediction</h3>
+
+<h4>Goal</h4>
+<p>Build a model that predicts the Timika score — a validated radiographic severity measure — by integrating frontal chest X-ray imaging with clinical metadata.</p>
+
+<h4>Why it matters</h4>
+<p>Accurate assessment of TB severity is fundamental to treatment planning and disease management, yet current practice relies heavily on subjective radiological interpretation. The Timika score provides a standardized, quantitative measure of disease extent, but its manual computation is time-consuming and prone to inter-observer variability. A multimodal AI framework that combines imaging features with clinical context — symptoms, demographics, bacterial load, medical history — can emulate the integrative reasoning of expert clinicians and improve diagnostic consistency across diverse healthcare settings.</p>
+
+<h4>What you need to solve</h4>
+<p>Participants must develop a multimodal prediction pipeline that takes two inputs simultaneously:</p>
+<ul>
+<li><strong>Imaging:</strong> frontal chest X-ray (AP/PA)</li>
+<li><strong>Clinical data:</strong> structured metadata including demographics, symptoms, sputum results, and medical history</li>
+</ul>
+<p>The model must accurately predict the Timika score for both TB-positive and normal cases. Your method should be robust to missing or incomplete clinical variables and generalizable across diverse patient populations.</p>
+
+
+<!--<h4>Metrics</h4><div class="mt-1"><span class="metric-tag t2">F1-Score</span></div>-->
+</div>
+</div></div>
+</section>
+
+<!-- DATASET -->
+<section id="dataset"><div class="container">
+<div class="section-label">Data</div>
+<h2 class="section-title">Dataset</h2>
+<div class="section-desc">Overview of the challenge dataset, including sample images, annotation examples, and data distributions. Full data access is provided upon registration.</div>
+
+<!-- Row 1: Sample & Annotation (existing) -->
+<h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">Sample Images & Annotations</h3>
+<div class="curation-grid">
+<div class="curation-placeholder"><div class="ph-icon">🫁</div><div class="ph-label">Task 1: CXR with Cavity Annotations</div><div class="ph-desc">Sample chest X-rays showing cavity detection<br>and segmentation masks</div></div>
+<div class="curation-placeholder"><div class="ph-icon">📊</div><div class="ph-label">Task 2: Multimodal Data Overview</div><div class="ph-desc">CXR samples paired with clinical metadata<br>and Timika score distributions</div></div>
+</div>
+
+<!-- Row 2: Data Distribution -->
+<h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-top:2.5rem;margin-bottom:1rem">Data Distribution</h3>
+<div class="curation-grid">
+<div class="curation-placeholder"><div class="ph-icon">📈</div><div class="ph-label">Task 1: Cavity Presence Distribution</div><div class="ph-desc">Class balance (positive vs. negative),<br>cavity size distribution, and location heatmap</div></div>
+<div class="curation-placeholder"><div class="ph-icon">📉</div><div class="ph-label">Task 2: Timika Score Distribution</div><div class="ph-desc">Timika score histogram, TB vs. Normal ratio,<br>and per-center data distribution</div></div>
+</div>
+
+<!-- Row 3: Annotation Detail -->
+<h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-top:2.5rem;margin-bottom:1rem">Annotation Details</h3>
+<div class="curation-grid" style="grid-template-columns:1fr">
+<div class="curation-placeholder" style="min-height:180px"><div class="ph-icon">🏷️</div><div class="ph-label">Labeling Protocol & Annotation Examples</div><div class="ph-desc">Annotation guidelines, label format specification, weak vs. strong label examples,<br>and inter-annotator agreement samples</div></div>
+</div>
+
+</div></section>
+
+<div class="divider"></div>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="bg-alt"><div class="container">
+<div class="section-label">Timeline</div>
+<h2 class="section-title">Schedule</h2>
+<div class="section-desc">All deadlines are based on Korea Standard Time (KST) unless otherwise noted.</div>
+<table class="sched-table"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody>
+<tr><td>Apr 10 – May 15, 2026</td><td>Application for Participation</td></tr>
+<tr><td>May 15, 2026</td><td>Internal Dataset Release</td></tr>
+<tr class="phase-row"><td>May 15 – July 31, 2026</td><td>Internal Competition Phase</td></tr>
+<tr><td>July 31, 2026</td><td>Announcement of Qualified Teams for External Competition</td></tr>
+<tr class="phase-row"><td>Aug 1 – Aug 20, 2026</td><td>External Competition Phase</td></tr>
+<tr><td>Aug 20 – Aug 31, 2026</td><td>Organizer Verification and Docker Evaluation</td></tr>
+<tr><td>September 1, 2026</td><td>Final Ranking Announcement and MICCAI Invitation</td></tr>
+<tr><td>October 4 & 8, 2026</td><td>Challenge at MICCAI 2026 and Award Ceremony</td></tr>
+<tr><td>November 1, 2026</td><td>Paper Submission Deadline</td></tr>
+</tbody></table>
+
+<div style="margin-top:2rem">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem">
+<h4 style="font-size:.88rem;font-weight:600;color:var(--primary);margin-bottom:.5rem">1st Stage — Internal Competition</h4>
+<p style="font-size:.86rem;color:var(--text-secondary);line-height:1.75">Participants will develop and validate their models using the internal dataset provided by the organizers. Based on the ranking achieved in this stage, selected teams will advance to the next stage.</p>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem">Submission deadline: <strong>July 31, 2026, 09:00 AM (KST)</strong></p>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem">
+<h4 style="font-size:.88rem;font-weight:600;color:var(--primary);margin-bottom:.5rem">2nd Stage — External Competition</h4>
+<p style="font-size:.86rem;color:var(--text-secondary);line-height:1.75">Selected teams will participate in the external competition for final evaluation. During this stage, each team may submit up to two times per week and must provide a Dockerfile. All submitted Dockerfiles will be executed directly by the organizers for final ranking.</p>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem">Submission deadline: <strong>August 20, 2026, 09:00 AM (KST)</strong></p>
+</div>
+<div style="background:var(--warm-light,#fef3e2);border:1px solid #fcd28d;border-radius:8px;padding:1rem 1.25rem">
+<p style="font-size:.84rem;color:#92400e;margin:0"><strong>Important:</strong> Submissions with Dockerfiles that fail to execute successfully will be considered invalid.</p>
+</div>
+</div>
+</div></section>
+
+<!-- EVALUATION -->
+<!-- EVALUATION -->
+<section id="evaluation"><div class="container">
+<div class="section-label">Evaluation</div>
+<h2 class="section-title">Evaluation & Submission</h2>
+<div class="eval-grid">
+<div class="eval-card"><div class="tag">Task 1 Metrics</div><h3>Cavity Segmentation</h3><div><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div><p class="mt-1">DSC for segmentation quality; Accuracy for presence detection. Final ranking combines both.</p></div>
+<div class="eval-card"><div class="tag">Task 2 Metrics</div><h3>Multimodal Diagnosis</h3><div><span class="metric-tag t2">F1-Score</span></div><p class="mt-1">Balances precision and recall, reflecting clinical needs where both false positives and false negatives matter.</p></div>
+</div>
+<div class="eval-card" style="margin-top:1.25rem">
+<div class="tag">Phase 1 — Internal Competition</div>
+<h3>Prediction Submission</h3>
+<ul>
+<li>Submit prediction result files</li>
+<li>Evaluated on internal validation set</li>
+<li>Leaderboard updated periodically</li>
+</ul>
+</div>
+<div class="eval-card" style="margin-top:1.25rem">
+<div class="tag">Phase 2 — External Competition</div>
+<h3>Docker Submission</h3>
+<ul>
+<li>Docker image via Docker Hub tag</li>
+<li>Model weights in container</li>
+<li>README with execution instructions</li>
+<li>Method Description (MICCAI template, 8+2 pages)</li>
+</ul>
+<p class="mt-1" style="font-size:.78rem;color:var(--text-muted)">Docker specs: <a href="https://github.com/lee-edgar/tb-challenge-test" style="color:var(--primary)">GitHub</a></p>
+</div>
+</div></section>
+
+<div class="divider"></div>
+<!--<section id="evaluation"><div class="container">-->
+<!--<div class="section-label">Evaluation</div>-->
+<!--<h2 class="section-title">Evaluation & Submission</h2>-->
+<!--<div class="eval-grid">-->
+<!--<div class="eval-card"><div class="tag">Task 1 Metrics</div><h3>Cavity Segmentation</h3><div><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div><p class="mt-1">DSC for segmentation quality; Accuracy for presence detection. Final ranking combines both.</p></div>-->
+<!--<div class="eval-card"><div class="tag">Task 2 Metrics</div><h3>Multimodal Diagnosis</h3><div><span class="metric-tag t2">F1-Score</span></div><p class="mt-1">Balances precision and recall, reflecting clinical needs where both false positives and false negatives matter.</p></div>-->
+<!--<div class="eval-card">-->
+<!--    <div class="tag">Phase 1 — Internal</div>-->
+<!--    <h3>Prediction Submission</h3>-->
+<!--    <ul>-->
+<!--        <li>Submit prediction result files</li>-->
+<!--        <li>Evaluated on internal validation set</li>-->
+<!--        <li>Leaderboard updated periodically</li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<div class="eval-card"><div class="tag">Phase 2 — External</div><h3>Docker Submission</h3><ul><li>Docker image via Docker Hub tag</li><li>Model weights in container</li><li>README with execution instructions</li><li>Method Description (MICCAI template, 8+2 pages)</li></ul><p class="mt-1" style="font-size:.78rem;color:var(&#45;&#45;text-muted)">Docker specs: <a href="https://github.com/lee-edgar/tb-challenge-test" style="color:var(&#45;&#45;primary)">GitHub</a></p></div>-->
+<!--</div></div>-->
+<!--</section>-->
+
+<!--<div class="divider"></div>-->
+
+<!-- RULES -->
+<section id="rules" class="bg-alt"><div class="container">
+<div class="section-label">Guidelines</div>
+<h2 class="section-title">Rules & Policies</h2>
+<div>
+<div class="rule-item"><span class="rule-num">01</span><div><h4>Automatic Methods Only</h4><p>Only fully automatic methods eligible. No manual intervention during inference.</p></div></div>
+<div class="rule-item"><span class="rule-num">02</span><div><h4>External Data Policy</h4><p>No additional annotated data allowed. Pre-trained models permitted. All sources must be disclosed.</p></div></div>
+<div class="rule-item"><span class="rule-num">03</span><div><h4>Anti-Cheating & Reproducibility</h4><p>Top teams must submit source code and weights. Data leakage or manipulation → disqualification.</p></div></div>
+<div class="rule-item"><span class="rule-num">04</span><div><h4>Dual-Task Participation</h4><p>Teams may enter both tasks. Winning prizes in both simultaneously is allowed.</p></div></div>
+<div class="rule-item"><span class="rule-num">05</span><div><h4>Data Confidentiality</h4><p>Dataset for this challenge only. Redistribution or commercial use strictly prohibited.</p></div></div>
+<div class="rule-item"><span class="rule-num">06</span><div><h4>Independent Publication</h4><p>Teams may publish independently. Please cite the challenge paper when applicable.</p></div></div>
+</div></div></section>
+
+<!-- PRIZES -->
+<section id="prizes"><div class="container">
+<div class="section-label">Awards</div>
+<h2 class="section-title">Prizes</h2>
+<div class="section-desc">Awarded independently per task. Each task maintains its own leaderboard. Dual-task winners receive both awards.</div>
+
+<div class="prize-task-header" style="margin-top:0"><h3>Task 1: Cavity Presence Detection and Segmentation</h3></div>
+<div class="prize-row">
+<div class="prize-card gold"><div class="rank">🥇</div><div class="amount">$1,400</div><div class="place">First Prize</div></div>
+<div class="prize-card silver"><div class="rank">🥈</div><div class="amount">$700</div><div class="place">Second Prize</div></div>
+<div class="prize-card bronze"><div class="rank">🥉</div><div class="amount">$350</div><div class="place">Third Prize</div></div>
+</div>
+
+<div class="prize-task-header"><h3>Task 2: Multimodal Timika Score Prediction</h3></div>
+<div class="prize-row">
+<div class="prize-card gold"><div class="rank">🥇</div><div class="amount">$1,400</div><div class="place">First Prize</div></div>
+<div class="prize-card silver"><div class="rank">🥈</div><div class="amount">$700</div><div class="place">Second Prize</div></div>
+<div class="prize-card bronze"><div class="rank">🥉</div><div class="amount">$350</div><div class="place">Third Prize</div></div>
+</div>
+
+<div class="award-policy">
+<h4>Award Policy</h4>
+<p>Winners are determined solely by each task's respective metrics; there is no combined overall ranking across tasks. To be eligible for any challenge awards, top-ranking teams are strictly required to <strong>publicly release their complete inference pipelines</strong> — including Dockerfile, preprocessing, postprocessing — <strong>and model weights.</strong></p>
+<p style="margin-top:.75rem">Top-performing teams will be invited to the <strong>MICCAI 2026 Challenge Day</strong> for oral presentations. Selected methods may be invited for a joint journal publication.</p>
+</div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- REGISTRATION -->
+<section id="registration" class="bg-alt"><div class="container">
+<div class="section-label">Join</div>
+<h2 class="section-title">Registration</h2>
+<div class="reg-box">
+<h3>Ready to participate?</h3>
+<p>Registration is free. You may register for one or both tasks.</p>
+<a href="https://forms.google.com/" target="_blank" class="btn btn-primary" style="padding:.7rem 2rem">Register via Google Form ↗</a>
+<div class="steps">
+<div class="step"><div class="num">STEP 01</div><h4>Register</h4><p>Google Form — team info + data agreement</p></div>
+<div class="step"><div class="num">STEP 02</div><h4>Access Data</h4><p>Download instructions + baseline code</p></div>
+<div class="step"><div class="num">STEP 03</div><h4>Phase 1</h4><p>Submit predictions (internal val.)</p></div>
+<div class="step"><div class="num">STEP 04</div><h4>Phase 2</h4><p>Docker + Method Description</p></div>
+</div></div></div></section>
+
+<!-- CHALLENGE DAY -->
+<section id="challengeday"><div class="container">
+<div class="section-label">Event</div>
+<h2 class="section-title">Challenge Day at MICCAI 2026</h2>
+<div class="section-desc">Half-day event (~2 hours) at ADNEC Centre, Abu Dhabi.</div>
+<table class="day-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
+<tr><td>09:00 – 10:30</td><td>Clinical Keynotes <span style="color:var(--text-muted);font-size:.8rem">(Right Foundation — TBC)</span></td></tr>
+<tr><td>11:00 – 12:30</td><td>Top Team Presentations <span style="color:var(--text-muted);font-size:.8rem">— 10 min + 5 min Q&A</span></td></tr>
+<tr><td>14:00 – 15:30</td><td>Panel Discussion on TB AI Challenges</td></tr>
+</tbody></table>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- ORGANIZERS -->
+<section id="organizers" class="bg-alt"><div class="container">
+<div class="section-label">Team</div>
+<h2 class="section-title">Organizers</h2>
+<p class="org-label" style="margin-top:1.5rem">Academic & Clinical</p>
+<div class="org-list">
+<div class="org-item"><div class="org-av academic">AMC</div><div><h4>Prof. Namkug Kim</h4><div class="role">Challenge Chair</div><div class="aff">Asan Medical Center, Seoul</div><div class="members">Seungjoo Park, Yoojin Nam, Dongju Lee …</div></div></div>
+<div class="org-item"><div class="org-av clinical">AMC</div><div><h4>Prof. Sei Won Lee</h4><div class="role">Clinical Lead</div><div class="aff">Asan Medical Center, Seoul</div></div></div>
+<div class="org-item"><div class="org-av clinical">SEV</div><div><h4>Prof. Young Ae Kang</h4><div class="role">Clinical Support</div><div class="aff">Severance Hospital, Seoul</div></div></div>
+<div class="org-item"><div class="org-av academic">MGL</div><div><h4>Prof. Bayarbaatar Bold</h4><div class="role">External Validation</div><div class="aff">Intermed Hospital, Mongolia</div></div></div>
+<div class="org-item"><div class="org-av academic">NIH</div><div><h4>Alexander Rosenthal</h4><div class="role">TB Portal / Data</div><div class="aff">NIH / NIAID, USA</div></div></div>
+</div>
+<p class="org-label">Industry Partners</p>
+<div class="org-list">
+<div class="org-item"><div class="org-av industry">DN</div><div><h4>DEEP:NOID, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div></div></div>
+<div class="org-item"><div class="org-av industry">PM</div><div><h4>Promedius, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div><div class="members">HyunJin Bae</div></div></div>
+</div>
+<p class="org-label">Society</p>
+<div class="org-list">
+<div class="org-item"><div class="org-av society">KSR</div><div><h4>The Korean Society of Thoracic Radiology</h4><div class="role">Endorsing Society</div></div></div>
+</div>
+<div class="logos"><div class="logo-ph">Asan Medical Center</div><div class="logo-ph">Severance Hospital</div><div class="logo-ph">NIH / NIAID</div><div class="logo-ph">Intermed</div><div class="logo-ph">DEEP:NOID</div><div class="logo-ph">Promedius</div><div class="logo-ph">KSTR</div></div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact"><div class="container">
+<div class="section-label">Contact</div>
+<h2 class="section-title">Get in Touch</h2>
+<div class="contact-row"><p>For questions or collaboration inquiries:</p>
+<div class="contact-links"><a href="https://github.com/lee-edgar/tb-challenge-test/issues" target="_blank">GitHub Issues</a><a href="/cdn-cgi/l/email-protection#82f6f0e7e3f6afefeff6e0c2e3efe1acf1e7edf7eeace9f0">Email</a></div></div>
+</div></section>
+
+<footer>© 2026 TREAT-MMTB Challenge · Organized by Asan Medical Center · All rights reserved</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('scroll',()=>document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50));
+document.querySelecto
