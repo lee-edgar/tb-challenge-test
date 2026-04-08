@@ -48,14 +48,16 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div class="section-label">Overview</div>
 <h2 class="section-title">Challenge Background</h2>
 <div class="overview-prose">
-<p class="lead">Pulmonary tuberculosis (TB) remains a critical global health challenge, characterized by high morbidity and mortality. Chest X-ray (CXR) examination is an essential tool for TB screening, triage, and diagnosis. Accurate disease diagnosis and identification of TB lesions on CXRs, such as cavities, are crucial for optimizing treatment, monitoring patient outcomes, and allocating resources efficiently — particularly in resource-constrained settings.</p>
-<div class="overview-highlight"><p><strong>Why cavities matter —</strong> The presence of a thick-walled cavitary lesion in the upper lobes strongly favors active pulmonary tuberculosis, particularly post-primary (reactivation) disease. Such cavitation typically reflects caseous necrosis with subsequent drainage into the bronchial tree, creating an air-filled space that serves as a surrogate marker of high mycobacterial burden.</p></div>
-<p>Since these cavitary foci frequently communicate with airways, patients with cavitary TB are more likely to exhibit smear- and culture-positive sputum, making the lesion a critical indicator of increased infectiousness and heightened transmission risk. While these radiological features are crucial indicators of TB severity, visual interpretation of CXRs is time-intensive and dependent on radiologist expertise, which may not always be available.</p>
+<p class="lead">Pulmonary tuberculosis (TB) remains a critical global health challenge, characterized by high morbidity and mortality. Chest X-ray (CXR) examination is an essential tool for TB screening, triage, and diagnosis.</p>
+<p>Yet the manual assessment of CXRs is slow, subjective, and constrained by the global shortage of trained radiologists. In regions where TB claims the most lives, the tools to fight it remain least accessible &mdash; underscoring the need for automated, scalable diagnostic solutions.</p>
 <div class="overview-subsection"><h3>Challenge Design</h3>
 <p>This challenge addresses these gaps by introducing two innovative tasks:</p>
-<ul><li><strong>Task 1</strong> focuses on <em>cavity detection and segmentation</em>, using advanced deep learning techniques to identify and quantify high-risk cavities in CXRs.</li><li><strong>Task 2</strong> implements a <em>multimodal approach for Timika score prediction</em>, integrating radiological features from CXRs with clinical metadata. By automating the Timika score — a validated radiographic scoring system for TB severity — the model provides a standardized, quantitative measure of disease extent.</li></ul></div>
+<ul><li><strong>Task 1</strong> focuses on <em>cavity detection and segmentation</em>, using advanced deep learning techniques to identify and quantify high-risk cavities in CXRs.</li><li><strong>Task 2</strong> implements a <em>multimodal approach for Timika score prediction</em>, integrating radiological features from CXRs with clinical metadata. By automating the Timika score &mdash; a validated radiographic scoring system for TB severity &mdash; the model provides a standardized, quantitative measure of disease extent.</li></ul></div>
 <div class="overview-subsection"><h3>Expected Impact</h3>
-<p>From a <strong>biomedical perspective</strong>, this framework enhances diagnostic precision and enables consistent longitudinal monitoring. From a <strong>technical perspective</strong>, it leverages state-of-the-art machine learning to provide scalable, explainable tools for diverse clinical settings. The anticipated impact includes streamlining personalized treatment planning, reducing the burden on healthcare professionals, and bridging the gap in global TB care through automated, high-fidelity diagnostics.</p></div>
+<p>From a <strong>medical domain perspective</strong>, this framework enhances diagnostic precision and enables consistent longitudinal monitoring. From a <strong>technical perspective</strong>, it leverages state-of-the-art machine learning to provide scalable, explainable tools for diverse clinical settings. The anticipated impact includes streamlining personalized treatment planning, reducing the burden on healthcare professionals, and bridging the gap in global TB care through automated, high-fidelity diagnostics.</p></div>
+<div class="overview-subsection"><h3>Clinical Background</h3>
+<div class="overview-highlight"><p><strong>Why cavities matter &mdash;</strong> The presence of a thick-walled cavitary lesion in the upper lobes strongly favors active pulmonary tuberculosis, particularly post-primary (reactivation) disease. Such cavitation typically reflects caseous necrosis with subsequent drainage into the bronchial tree, creating an air-filled space that serves as a surrogate marker of high mycobacterial burden.</p></div>
+<p>Since these cavitary foci frequently communicate with airways, patients with cavitary TB are more likely to exhibit smear- and culture-positive sputum, making the lesion a critical indicator of increased infectiousness and heightened transmission risk. While these radiological features are crucial indicators of TB severity, visual interpretation of CXRs is time-intensive and dependent on radiologist expertise, which may not always be available.</p></div>
 </div>
 <div class="overview-grid">
 <div class="ov-card"><div class="icon">🫁</div><h3>Task 1: Cavity Detection & Segmentation</h3><p>Deep learning–based detection and segmentation of cavitary lesions from CXR, targeting high-risk indicators of TB severity and infectiousness.</p></div>
@@ -88,6 +90,15 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <li><strong>Segmentation:</strong> if present, delineate the cavity boundary accurately</li>
 </ul>
 <p>Your method should be robust to variation in lesion appearance, size, location, and image quality.</p>
+
+<h4>Expected output</h4>
+<p>For each test image, submit:</p>
+<ul>
+<li>a cavity presence/absence prediction</li>
+<li>a cavity segmentation mask when applicable</li>
+</ul>
+<p class="task-note">Detailed submission format specifications (file naming, directory structure, mask format) will be provided upon dataset release on May 15, 2026.</p>
+<p class="task-note">Note: This challenge focuses on frontal CXRs (AP/PA) as they represent the primary imaging modality for TB screening in resource-limited settings. Lateral views are planned for future iterations (e.g., 2027).</p>
 <!--<h4>Metrics</h4><div class="mt-1"><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div>-->
 </div>
 <div class="task-col">
@@ -108,6 +119,12 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 </ul>
 <p>The model must accurately predict the Timika score for both TB-positive and normal cases. Your method should be robust to missing or incomplete clinical variables and generalizable across diverse patient populations.</p>
 
+<h4>Expected output</h4>
+<p>For each case, submit:</p>
+<ul>
+<li>a predicted Timika score</li>
+</ul>
+<p class="task-note">Detailed submission format specifications and clinical metadata schema will be provided upon dataset release on May 15, 2026.</p>
 
 <!--<h4>Metrics</h4><div class="mt-1"><span class="metric-tag t2">F1-Score</span></div>-->
 </div>
@@ -170,7 +187,8 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem">
 <h4 style="font-size:.88rem;font-weight:600;color:var(--primary);margin-bottom:.5rem">2nd Stage — External Competition</h4>
 <p style="font-size:.86rem;color:var(--text-secondary);line-height:1.75">Selected teams will participate in the external competition for final evaluation. During this stage, each team may submit up to two times per week and must provide a Dockerfile. All submitted Dockerfiles will be executed directly by the organizers for final ranking.</p>
-<p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem">Submission deadline: <strong>August 20, 2026, 09:00 AM (KST)</strong></p>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem">A sample Dockerfile and submission template will be provided via the GitHub repository before the external competition begins.</p>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:.25rem">Submission deadline: <strong>August 20, 2026, 09:00 AM (KST)</strong></p>
 </div>
 <div style="background:var(--warm-light,#fef3e2);border:1px solid #fcd28d;border-radius:8px;padding:1rem 1.25rem">
 <p style="font-size:.84rem;color:#92400e;margin:0"><strong>Important:</strong> Submissions with Dockerfiles that fail to execute successfully will be considered invalid.</p>
@@ -179,69 +197,46 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 </div></section>
 
 <!-- EVALUATION -->
-<!-- EVALUATION -->
 <section id="evaluation"><div class="container">
 <div class="section-label">Evaluation</div>
 <h2 class="section-title">Evaluation & Submission</h2>
 <div class="eval-grid">
-<div class="eval-card"><div class="tag">Task 1 Metrics</div><h3>Cavity Segmentation</h3><div><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div><p class="mt-1">DSC for segmentation quality; Accuracy for presence detection. Final ranking combines both.</p></div>
-<div class="eval-card"><div class="tag">Task 2 Metrics</div><h3>Multimodal Diagnosis</h3><div><span class="metric-tag t2">F1-Score</span></div><p class="mt-1">Balances precision and recall, reflecting clinical needs where both false positives and false negatives matter.</p></div>
+<div class="eval-card"><div class="tag">Task 1 Metrics</div><h3>Cavity Segmentation</h3><div><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div><p class="mt-1">Evaluation is expected to be based on Dice Similarity Coefficient (DSC) for segmentation quality and Accuracy for cavity presence detection. The exact metrics, ranking formula, and evaluation scripts will be finalized and announced upon dataset release on May 15, 2026.</p></div>
+<div class="eval-card"><div class="tag">Task 2 Metrics</div><h3>Multimodal Diagnosis</h3><div><span class="metric-tag t2">F1-Score</span></div><p class="mt-1">Evaluation is expected to be based on F1-Score, balancing precision and recall to reflect clinical diagnostic requirements. Detailed scoring criteria and evaluation scripts will be finalized and announced upon dataset release on May 15, 2026.</p></div>
 </div>
 <div class="eval-card" style="margin-top:1.25rem">
-<div class="tag">Phase 1 — Internal Competition</div>
+<div class="tag">Phase 1 &mdash; Internal Competition</div>
 <h3>Prediction Submission</h3>
 <ul>
 <li>Submit prediction result files</li>
 <li>Evaluated on internal validation set</li>
-<li>Leaderboard updated periodically</li>
 </ul>
+<p class="mt-1" style="font-size:.82rem;color:var(--text-muted)">Submission format and file structure will be provided upon dataset release on May 15, 2026.</p>
 </div>
 <div class="eval-card" style="margin-top:1.25rem">
-<div class="tag">Phase 2 — External Competition</div>
+<div class="tag">Phase 2 &mdash; External Competition</div>
 <h3>Docker Submission</h3>
 <ul>
-<li>Docker image via Docker Hub tag</li>
-<li>Model weights in container</li>
+<li>Dockerized inference pipeline with model weights</li>
 <li>README with execution instructions</li>
-<li>Method Description (MICCAI template, 8+2 pages)</li>
 </ul>
-<p class="mt-1" style="font-size:.78rem;color:var(--text-muted)">Docker specs: <a href="https://github.com/lee-edgar/tb-challenge-test" style="color:var(--primary)">GitHub</a></p>
+<p class="mt-1" style="font-size:.82rem;color:var(--text-muted)">Docker base image specifications, submission template, and detailed guidelines will be provided via the <a href="https://github.com/lee-edgar/tb-challenge-test" style="color:var(--primary)">GitHub repository</a> before the external competition begins.</p>
 </div>
 </div></section>
 
 <div class="divider"></div>
-<!--<section id="evaluation"><div class="container">-->
-<!--<div class="section-label">Evaluation</div>-->
-<!--<h2 class="section-title">Evaluation & Submission</h2>-->
-<!--<div class="eval-grid">-->
-<!--<div class="eval-card"><div class="tag">Task 1 Metrics</div><h3>Cavity Segmentation</h3><div><span class="metric-tag">DSC</span> <span class="metric-tag">Accuracy</span></div><p class="mt-1">DSC for segmentation quality; Accuracy for presence detection. Final ranking combines both.</p></div>-->
-<!--<div class="eval-card"><div class="tag">Task 2 Metrics</div><h3>Multimodal Diagnosis</h3><div><span class="metric-tag t2">F1-Score</span></div><p class="mt-1">Balances precision and recall, reflecting clinical needs where both false positives and false negatives matter.</p></div>-->
-<!--<div class="eval-card">-->
-<!--    <div class="tag">Phase 1 — Internal</div>-->
-<!--    <h3>Prediction Submission</h3>-->
-<!--    <ul>-->
-<!--        <li>Submit prediction result files</li>-->
-<!--        <li>Evaluated on internal validation set</li>-->
-<!--        <li>Leaderboard updated periodically</li>-->
-<!--    </ul>-->
-<!--</div>-->
-<!--<div class="eval-card"><div class="tag">Phase 2 — External</div><h3>Docker Submission</h3><ul><li>Docker image via Docker Hub tag</li><li>Model weights in container</li><li>README with execution instructions</li><li>Method Description (MICCAI template, 8+2 pages)</li></ul><p class="mt-1" style="font-size:.78rem;color:var(&#45;&#45;text-muted)">Docker specs: <a href="https://github.com/lee-edgar/tb-challenge-test" style="color:var(&#45;&#45;primary)">GitHub</a></p></div>-->
-<!--</div></div>-->
-<!--</section>-->
-
-<!--<div class="divider"></div>-->
 
 <!-- RULES -->
 <section id="rules" class="bg-alt"><div class="container">
 <div class="section-label">Guidelines</div>
-<h2 class="section-title">Rules & Policies</h2>
+<h2 class="section-title">Rules &amp; Policies</h2>
 <div>
-<div class="rule-item"><span class="rule-num">01</span><div><h4>Automatic Methods Only</h4><p>Only fully automatic methods eligible. No manual intervention during inference.</p></div></div>
-<div class="rule-item"><span class="rule-num">02</span><div><h4>External Data Policy</h4><p>No additional annotated data allowed. Pre-trained models permitted. All sources must be disclosed.</p></div></div>
-<div class="rule-item"><span class="rule-num">03</span><div><h4>Anti-Cheating & Reproducibility</h4><p>Top teams must submit source code and weights. Data leakage or manipulation → disqualification.</p></div></div>
-<div class="rule-item"><span class="rule-num">04</span><div><h4>Dual-Task Participation</h4><p>Teams may enter both tasks. Winning prizes in both simultaneously is allowed.</p></div></div>
-<div class="rule-item"><span class="rule-num">05</span><div><h4>Data Confidentiality</h4><p>Dataset for this challenge only. Redistribution or commercial use strictly prohibited.</p></div></div>
-<div class="rule-item"><span class="rule-num">06</span><div><h4>Independent Publication</h4><p>Teams may publish independently. Please cite the challenge paper when applicable.</p></div></div>
+<div class="rule-item"><span class="rule-num">01</span><div><h4>Additional Data Policy</h4><p>Use of additional publicly available datasets and pre-trained models is permitted. Participants may leverage any open-source datasets, foundation models, or pre-trained weights to improve their methods. All data sources and models used must be fully disclosed in the Method Description. Failure to disclose will result in disqualification.</p></div></div>
+<div class="rule-item"><span class="rule-num">02</span><div><h4>Computational Constraints</h4><p>Participants are free to use any computational resources during training. However, submitted inference pipelines must run within the organizers' evaluation environment. Models that exceed available GPU memory or fail to complete inference within the allotted time limit will be considered invalid. Specific hardware specifications and time constraints will be announced upon dataset release.</p></div></div>
+<div class="rule-item"><span class="rule-num">03</span><div><h4>Anti-Cheating &amp; Reproducibility</h4><p>Top-ranking teams must submit full source code and trained model weights for verification. Any form of data leakage, test set probing, or result manipulation will result in immediate disqualification.</p></div></div>
+<div class="rule-item"><span class="rule-num">04</span><div><h4>Team &amp; Participation</h4><p>Teams or individuals may enter one or both tasks. Winning prizes in both tasks simultaneously is allowed. Each individual may belong to only one team per task. Participating in multiple teams within the same task is strictly prohibited. Team roster changes are permitted only once and must be finalized before the application deadline (May 15, 2026).</p></div></div>
+<div class="rule-item"><span class="rule-num">05</span><div><h4>Submission Limits</h4><p>2nd Stage: Up to two submissions per week. Submissions with Dockerfiles that fail to execute will be considered invalid.</p></div></div>
+<div class="rule-item"><span class="rule-num">06</span><div><h4>Data Policy</h4><p>The organizers will provide a subset of annotated cases for training and validation. The source images originate from publicly available repositories, which participants may independently access. However, the annotations and labels created by the organizers are proprietary to this challenge and must not be redistributed or made publicly available at any time, including after the competition concludes. All participants are required to sign a data security agreement upon registration.</p></div></div>
 </div></div></section>
 
 <!-- PRIZES -->
@@ -292,12 +287,18 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <section id="challengeday"><div class="container">
 <div class="section-label">Event</div>
 <h2 class="section-title">Challenge Day at MICCAI 2026</h2>
-<div class="section-desc">Half-day event (~2 hours) at ADNEC Centre, Abu Dhabi.</div>
+<div class="section-desc">Part of the Joint Thematic Day &mdash; <em>Building Inclusive and Efficient AI Technologies for Medical Imaging in Africa and Other Resource-Constrained Settings</em></div>
+<h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">SE I: TB Challenges (8:00 &ndash; 10:30)</h3>
+<p style="font-size:.86rem;color:var(--text-secondary);margin-bottom:1rem">Chairs: Namkung Kim &amp; Sengjoo Park</p>
 <table class="day-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
-<tr><td>09:00 – 10:30</td><td>Clinical Keynotes <span style="color:var(--text-muted);font-size:.8rem">(Right Foundation — TBC)</span></td></tr>
-<tr><td>11:00 – 12:30</td><td>Top Team Presentations <span style="color:var(--text-muted);font-size:.8rem">— 10 min + 5 min Q&A</span></td></tr>
-<tr><td>14:00 – 15:30</td><td>Panel Discussion on TB AI Challenges</td></tr>
+<tr><td>8:00 &ndash; 8:05</td><td>Opening Remarks</td></tr>
+<tr><td>8:00 &ndash; 8:20</td><td><strong>(Keynote)</strong> Hoon Sang Lee (Right Foundation) &mdash; <em>Bridging the Diagnostic Gap: Practical AI Deployment for TB in the Global South</em></td></tr>
+<tr><td>8:20 &ndash; 8:40</td><td>Radiologists at the Forefront of Tuberculosis Eradication</td></tr>
+<tr><td>8:40 &ndash; 9:00</td><td>TREAT-MMTB 2026 Challenge Overview</td></tr>
+<tr><td>9:00 &ndash; 10:00</td><td>Top-Performing Teams Presentations</td></tr>
+<tr><td>10:00 &ndash; 10:30</td><td>Coffee Break &amp; Networking</td></tr>
 </tbody></table>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:1.25rem">This session is part of the MICCAI 2026 Joint Thematic Day. Full agenda and venue details will be available on the MICCAI 2026 website. Schedule is subject to change.</p>
 </div></section>
 
 <div class="divider"></div>
@@ -331,11 +332,14 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div class="section-label">Contact</div>
 <h2 class="section-title">Get in Touch</h2>
 <div class="contact-row"><p>For questions or collaboration inquiries:</p>
-<div class="contact-links"><a href="https://github.com/lee-edgar/tb-challenge-test/issues" target="_blank">GitHub Issues</a><a href="/cdn-cgi/l/email-protection#82f6f0e7e3f6afefeff6e0c2e3efe1acf1e7edf7eeace9f0">Email</a></div></div>
+<div class="contact-links"><a href="https://github.com/lee-edgar/tb-challenge-test/issues" target="_blank">GitHub Issues</a><a href="mailto:treat-mmtb@amc.seoul.kr">Email</a></div></div>
 </div></section>
 
-<footer>© 2026 TREAT-MMTB Challenge · Organized by Asan Medical Center · All rights reserved</footer>
+<footer>&copy; 2026 TREAT-MMTB Challenge &middot; Organized by Asan Medical Center &middot; All rights reserved</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-window.addEventListener('scroll',()=>document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50));
-document.querySelecto
+<script>
+window.addEventListener('scroll',function(){document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50)});
+document.querySelectorAll('.nav-links a').forEach(function(l){l.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')})});
+</script>
+</body>
+</html>
