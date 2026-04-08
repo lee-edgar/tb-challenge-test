@@ -27,6 +27,8 @@ section{padding:4rem 2rem}.container{max-width:900px;margin:0 auto}.section-labe
 footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:.75rem}.overview-grid,.prize-row{grid-template-columns:1fr}.eval-grid,.tasks-split,.curation-grid{grid-template-columns:1fr}.data-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.hero-meta{flex-direction:column;align-items:center;gap:.5rem}section{padding:3rem 1.25rem}}
 .mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}
+.pending-table{width:100%;border-collapse:collapse;margin-top:1rem}.pending-table th{text-align:left;font-size:.72rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:.5rem .8rem;border-bottom:2px solid var(--border)}.pending-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border-light);font-size:.84rem;color:var(--text-secondary)}.pending-table td:first-child{font-weight:500;color:var(--text)}.pending-table td:nth-child(2){font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--primary);white-space:nowrap}
+.recognition-box{background:var(--bg-alt);border:1px solid var(--border-light);border-radius:8px;padding:1.25rem 1.5rem;margin-top:1rem}.recognition-box h4{font-size:.88rem;font-weight:600;color:var(--heading);margin-bottom:.5rem}.recognition-box p{font-size:.86rem;color:var(--text-secondary);line-height:1.8}
 </style>
 </head>
 <body>
@@ -36,12 +38,54 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div class="hero-badge">MICCAI 2026 Challenge</div>
 <h1>TREAT-MMTB 2026</h1>
 <p class="full-name">Transformative Research and Efficient AI Technologies<br>for Multimodal Management of Tuberculosis</p>
-<p class="hero-desc">
-    A MICCAI 2026 challenge addressing critical gaps in TB care through AI-driven cavity segmentation and multimodal severity scoring on chest X-rays. Built on multi-center data from Korea, Mongolia, Peru, and the Philippines, enabling clinically generalizable models for diverse healthcare settings.
+<p class="hero-desc" style="font-size:1.1rem;font-weight:500;color:var(--heading);max-width:580px">
+    Segment cavities. Predict severity. Publish together.
 </p>
-<div class="hero-meta"><span>📍 ADNEC Centre, Abu Dhabi</span><span>📅 October 4–8, 2026</span><span>⏱ Half-day Event</span></div>
+<!---->
+<div style="display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-bottom:2rem;font-size:.88rem">
+<div style="background:var(--primary-light);color:var(--primary);padding:.5rem 1.25rem;border-radius:8px;font-weight:600">
+Apr 10 &ndash; May 15, 2026 &mdash; Application for Participation Competition Phase
+</div>
+<div style="color:var(--text-muted)">
+May 15 &ndash; Aug 20, 2026 &mdash; (Internal &middot; External) Competition Phase
+</div>
+<div style="color:var(--text-muted)">
+Oct 4 &amp; 8, 2026 &mdash; MICCAI 2026 Awards, Abu Dhabi
+</div>
+</div>
+
+<div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.5rem;text-align:center;min-width:160px">
+<div style="font-size:1.3rem">&#x1F4DD;</div>
+<div style="font-size:.78rem;color:var(--text-muted)">Journal Co-authorship</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.5rem;text-align:center;min-width:160px">
+<div style="font-size:1.3rem">&#x1F3A4;</div>
+<div style="font-size:.78rem;color:var(--text-muted)">Oral Presentation at MICCAI</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.5rem;text-align:center;min-width:160px">
+<div style="font-size:1.3rem">&#x1F3C6;</div>
+<div style="font-size:.78rem;color:var(--text-muted)">Prizes per Task</div>
+</div>
+</div>
+
 <div class="hero-actions"><a href="#registration" class="btn btn-primary">Register Now →</a><a href="https://github.com/lee-edgar/tb-challenge-test" target="_blank" class="btn btn-outline">GitHub Repository</a></div>
 </div></section>
+
+<!-- UPCOMING RELEASES -->
+<section class="bg-alt" style="padding:3rem 2rem"><div class="container">
+<div class="section-label">Upcoming</div>
+<h2 class="section-title">Upcoming Releases</h2>
+<table class="pending-table">
+<thead><tr><th>What</th><th>When</th><th>Includes</th></tr></thead>
+<tbody>
+<tr><td>Dataset &amp; Evaluation Protocol</td><td>May 15, 2026</td><td>Training/validation data, submission format, clinical metadata schema, evaluation metrics, ranking formula, scoring scripts, hardware specs</td></tr>
+<tr><td>Docker Submission Environment</td><td>Before Aug 1, 2026</td><td>sample Dockerfile, submission template, execution guidelines</td></tr>
+</tbody>
+</table>
+</div></section>
+
+
 
 <!-- OVERVIEW -->
 <section id="overview"><div class="container">
@@ -60,7 +104,7 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <p>Since these cavitary foci frequently communicate with airways, patients with cavitary TB are more likely to exhibit smear- and culture-positive sputum, making the lesion a critical indicator of increased infectiousness and heightened transmission risk. While these radiological features are crucial indicators of TB severity, visual interpretation of CXRs is time-intensive and dependent on radiologist expertise, which may not always be available.</p></div>
 </div>
 <div class="overview-grid">
-<div class="ov-card"><div class="icon">🫁</div><h3>Task 1: Cavity Detection & Segmentation</h3><p>Deep learning–based detection and segmentation of cavitary lesions from CXR, targeting high-risk indicators of TB severity and infectiousness.</p></div>
+<div class="ov-card"><div class="icon">🧩</div><h3>Task 1: Cavity Detection & Segmentation</h3><p>Deep learning–based detection and segmentation of cavitary lesions from CXR, targeting high-risk indicators of TB severity and infectiousness.</p></div>
 <div class="ov-card"><div class="icon">🔬</div><h3>Task 2: Multimodal TB Diagnosis</h3><p>Timika score prediction through multimodal fusion of CXR imaging and clinical metadata for quantitative TB severity assessment.</p></div>
 <div class="ov-card"><div class="icon">🌍</div><h3>Multi-Center Validation</h3><p>External validation across 5 international sites — Korea, Mongolia, Peru, and the Philippines — ensuring clinical generalizability.</p></div>
 </div></div></section>
@@ -140,7 +184,7 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <!-- Row 1: Sample & Annotation (existing) -->
 <h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">Sample Images & Annotations</h3>
 <div class="curation-grid">
-<div class="curation-placeholder"><div class="ph-icon">🫁</div><div class="ph-label">Task 1: CXR with Cavity Annotations</div><div class="ph-desc">Sample chest X-rays showing cavity detection<br>and segmentation masks</div></div>
+<div class="curation-placeholder"><div class="ph-icon">🏷️</div><div class="ph-label">Task 1: CXR with Cavity Annotations</div><div class="ph-desc">Sample chest X-rays showing cavity detection<br>and segmentation masks</div></div>
 <div class="curation-placeholder"><div class="ph-icon">📊</div><div class="ph-label">Task 2: Multimodal Data Overview</div><div class="ph-desc">CXR samples paired with clinical metadata<br>and Timika score distributions</div></div>
 </div>
 
@@ -194,6 +238,24 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <p style="font-size:.84rem;color:#92400e;margin:0"><strong>Important:</strong> Submissions with Dockerfiles that fail to execute successfully will be considered invalid.</p>
 </div>
 </div>
+
+<!-- Challenge Day Event (within Schedule) -->
+<div style="margin-top:2.5rem">
+<h3 style="font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:700;color:var(--heading);margin-bottom:.5rem">Challenge Day at MICCAI 2026</h3>
+<p style="font-size:.86rem;color:var(--text-secondary);margin-bottom:1rem">Part of the Joint Thematic Day &mdash; <em>Building Inclusive and Efficient AI Technologies for Medical Imaging in Africa and Other Resource-Constrained Settings</em></p>
+<h4 style="font-size:.92rem;font-weight:600;color:var(--primary);margin-bottom:.5rem">SE I: TB Challenges (8:00 &ndash; 10:30)</h4>
+<p style="font-size:.84rem;color:var(--text-secondary);margin-bottom:1rem">Chairs: Namkung Kim &amp; Sengjoo Park</p>
+<table class="day-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
+<tr><td>8:00 &ndash; 8:05</td><td>Opening Remarks</td></tr>
+<tr><td>8:00 &ndash; 8:20</td><td><strong>(Keynote)</strong> Hoon Sang Lee (Right Foundation) &mdash; <em>Bridging the Diagnostic Gap: Practical AI Deployment for TB in the Global South</em></td></tr>
+<tr><td>8:20 &ndash; 8:40</td><td>Radiologists at the Forefront of Tuberculosis Eradication</td></tr>
+<tr><td>8:40 &ndash; 9:00</td><td>TREAT-MMTB 2026 Challenge Overview</td></tr>
+<tr><td>9:00 &ndash; 10:00</td><td>Top-Performing Teams Presentations</td></tr>
+<tr><td>10:00 &ndash; 10:30</td><td>Coffee Break &amp; Networking</td></tr>
+</tbody></table>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:1.25rem">This session is part of the MICCAI 2026 Joint Thematic Day. Full agenda and venue details will be available on the MICCAI 2026 website. Schedule is subject to change.</p>
+</div>
+
 </div></section>
 
 <!-- EVALUATION -->
@@ -224,6 +286,8 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 </div>
 </div></section>
 
+
+
 <div class="divider"></div>
 
 <!-- RULES -->
@@ -237,19 +301,25 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div class="rule-item"><span class="rule-num">04</span><div><h4>Team &amp; Participation</h4><p>Teams or individuals may enter one or both tasks. Winning prizes in both tasks simultaneously is allowed. Each individual may belong to only one team per task. Participating in multiple teams within the same task is strictly prohibited. Team roster changes are permitted only once and must be finalized before the application deadline (May 15, 2026).</p></div></div>
 <div class="rule-item"><span class="rule-num">05</span><div><h4>Submission Limits</h4><p>2nd Stage: Up to two submissions per week. Submissions with Dockerfiles that fail to execute will be considered invalid.</p></div></div>
 <div class="rule-item"><span class="rule-num">06</span><div><h4>Data Policy</h4><p>The organizers will provide a subset of annotated cases for training and validation. The source images originate from publicly available repositories, which participants may independently access. However, the annotations and labels created by the organizers are proprietary to this challenge and must not be redistributed or made publicly available at any time, including after the competition concludes. All participants are required to sign a data security agreement upon registration.</p></div></div>
+<div class="rule-item"><span class="rule-num">07</span><div><h4>Independent Publication</h4><p>Participating teams may publish their results independently. Please cite the challenge paper when applicable.</p></div></div>
 </div></div></section>
 
 <!-- PRIZES -->
 <section id="prizes"><div class="container">
 <div class="section-label">Awards</div>
 <h2 class="section-title">Prizes</h2>
-<div class="section-desc">Awarded independently per task. Each task maintains its own leaderboard. Dual-task winners receive both awards.</div>
+<div class="recognition-box" style="margin-top:0;margin-bottom:2rem">
+<h4>Recognition &amp; Publication</h4>
+<p>Top three performing methods will be announced publicly on the challenge website. Selected teams will be invited to present their methodology during an oral presentation at the MICCAI 2026 Challenge Day.</p>
+<p style="margin-top:.75rem">These teams will be listed as co-authors in the final TREAT-MMTB journal manuscript. At a minimum, the top-performing teams selected to present at the workshop will be included. Additionally, submissions that exhibit notable scientific value may also be invited as co-authors in the journal publication, regardless of final ranking.</p>
+</div>
 
 <div class="prize-task-header" style="margin-top:0"><h3>Task 1: Cavity Presence Detection and Segmentation</h3></div>
 <div class="prize-row">
 <div class="prize-card gold"><div class="rank">🥇</div><div class="amount">$1,400</div><div class="place">First Prize</div></div>
 <div class="prize-card silver"><div class="rank">🥈</div><div class="amount">$700</div><div class="place">Second Prize</div></div>
 <div class="prize-card bronze"><div class="rank">🥉</div><div class="amount">$350</div><div class="place">Third Prize</div></div>
+
 </div>
 
 <div class="prize-task-header"><h3>Task 2: Multimodal Timika Score Prediction</h3></div>
@@ -261,8 +331,7 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 
 <div class="award-policy">
 <h4>Award Policy</h4>
-<p>Winners are determined solely by each task's respective metrics; there is no combined overall ranking across tasks. To be eligible for any challenge awards, top-ranking teams are strictly required to <strong>publicly release their complete inference pipelines</strong> — including Dockerfile, preprocessing, postprocessing — <strong>and model weights.</strong></p>
-<p style="margin-top:.75rem">Top-performing teams will be invited to the <strong>MICCAI 2026 Challenge Day</strong> for oral presentations. Selected methods may be invited for a joint journal publication.</p>
+<p>Winners are determined solely by each task's respective metrics; there is no combined overall ranking across tasks. To be eligible for any challenge awards, top-ranking teams are strictly required to <strong>publicly release their complete inference pipelines</strong> &mdash; including Dockerfile, preprocessing, postprocessing &mdash; <strong>and model weights.</strong></p>
 </div>
 </div></section>
 
@@ -283,48 +352,28 @@ footer{text-align:center;padding:1.5rem 2rem;font-size:.78rem;color:var(--text-m
 <div class="step"><div class="num">STEP 04</div><h4>Phase 2</h4><p>Docker + Method Description</p></div>
 </div></div></div></section>
 
-<!-- CHALLENGE DAY -->
-<section id="challengeday"><div class="container">
-<div class="section-label">Event</div>
-<h2 class="section-title">Challenge Day at MICCAI 2026</h2>
-<div class="section-desc">Part of the Joint Thematic Day &mdash; <em>Building Inclusive and Efficient AI Technologies for Medical Imaging in Africa and Other Resource-Constrained Settings</em></div>
-<h3 style="font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">SE I: TB Challenges (8:00 &ndash; 10:30)</h3>
-<p style="font-size:.86rem;color:var(--text-secondary);margin-bottom:1rem">Chairs: Namkung Kim &amp; Sengjoo Park</p>
-<table class="day-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
-<tr><td>8:00 &ndash; 8:05</td><td>Opening Remarks</td></tr>
-<tr><td>8:00 &ndash; 8:20</td><td><strong>(Keynote)</strong> Hoon Sang Lee (Right Foundation) &mdash; <em>Bridging the Diagnostic Gap: Practical AI Deployment for TB in the Global South</em></td></tr>
-<tr><td>8:20 &ndash; 8:40</td><td>Radiologists at the Forefront of Tuberculosis Eradication</td></tr>
-<tr><td>8:40 &ndash; 9:00</td><td>TREAT-MMTB 2026 Challenge Overview</td></tr>
-<tr><td>9:00 &ndash; 10:00</td><td>Top-Performing Teams Presentations</td></tr>
-<tr><td>10:00 &ndash; 10:30</td><td>Coffee Break &amp; Networking</td></tr>
-</tbody></table>
-<p style="font-size:.82rem;color:var(--text-muted);margin-top:1.25rem">This session is part of the MICCAI 2026 Joint Thematic Day. Full agenda and venue details will be available on the MICCAI 2026 website. Schedule is subject to change.</p>
-</div></section>
-
-<div class="divider"></div>
-
 <!-- ORGANIZERS -->
 <section id="organizers" class="bg-alt"><div class="container">
 <div class="section-label">Team</div>
 <h2 class="section-title">Organizers</h2>
 <p class="org-label" style="margin-top:1.5rem">Academic & Clinical</p>
 <div class="org-list">
-<div class="org-item"><div class="org-av academic">AMC</div><div><h4>Prof. Namkug Kim</h4><div class="role">Challenge Chair</div><div class="aff">Asan Medical Center, Seoul</div><div class="members">Seungjoo Park, Yoojin Nam, Dongju Lee …</div></div></div>
-<div class="org-item"><div class="org-av clinical">AMC</div><div><h4>Prof. Sei Won Lee</h4><div class="role">Clinical Lead</div><div class="aff">Asan Medical Center, Seoul</div></div></div>
-<div class="org-item"><div class="org-av clinical">SEV</div><div><h4>Prof. Young Ae Kang</h4><div class="role">Clinical Support</div><div class="aff">Severance Hospital, Seoul</div></div></div>
-<div class="org-item"><div class="org-av academic">MGL</div><div><h4>Prof. Bayarbaatar Bold</h4><div class="role">External Validation</div><div class="aff">Intermed Hospital, Mongolia</div></div></div>
-<div class="org-item"><div class="org-av academic">NIH</div><div><h4>Alexander Rosenthal</h4><div class="role">TB Portal / Data</div><div class="aff">NIH / NIAID, USA</div></div></div>
+<div class="org-item"><div>AMC</div><div><h4>Prof. Namkug Kim</h4><div class="role">Challenge Chair</div><div class="aff">Asan Medical Center, Seoul</div><div class="members">Seungjoo Park, Yoojin Nam, Dongju Lee</div></div></div>
+<div class="org-item"><div>AMC</div><div><h4>Prof. Sei Won Lee</h4><div class="role">Clinical Support</div><div class="aff">Asan Medical Center, Seoul</div></div></div>
+<div class="org-item"><div>SEV</div><div><h4>Prof. Young Ae Kang</h4><div class="role">Clinical Support</div><div class="aff">Severance Hospital, Seoul</div></div></div>
+<div class="org-item"><div>MGL</div><div><h4>Prof. Bayarbaatar Bold</h4><div class="role">External Validation</div><div class="aff">Intermed Hospital, Mongolia</div></div></div>
+<div class="org-item"><div>NIH</div><div><h4>Alexander Rosenthal</h4><div class="role">TB Portal</div><div class="aff">NIH / NIAID, USA</div></div></div>
 </div>
 <p class="org-label">Industry Partners</p>
 <div class="org-list">
-<div class="org-item"><div class="org-av industry">DN</div><div><h4>DEEP:NOID, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div></div></div>
-<div class="org-item"><div class="org-av industry">PM</div><div><h4>Promedius, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div><div class="members">HyunJin Bae</div></div></div>
+<div class="org-item"><div>DN</div><div><h4>DEEP NOID, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div></div></div>
+<div class="org-item"><div>PM</div><div><h4>Promedius, Inc.</h4><div class="role">Industry Partner</div><div class="aff">Seoul, Korea</div><div class="members">HyunJin Bae</div></div></div>
 </div>
 <p class="org-label">Society</p>
 <div class="org-list">
-<div class="org-item"><div class="org-av society">KSR</div><div><h4>The Korean Society of Thoracic Radiology</h4><div class="role">Endorsing Society</div></div></div>
+<div class="org-item"><div>KSR</div><div><h4>The Korean Society of Thoracic Radiology</h4><div class="role">Endorsing Society</div></div></div>
 </div>
-<div class="logos"><div class="logo-ph">Asan Medical Center</div><div class="logo-ph">Severance Hospital</div><div class="logo-ph">NIH / NIAID</div><div class="logo-ph">Intermed</div><div class="logo-ph">DEEP:NOID</div><div class="logo-ph">Promedius</div><div class="logo-ph">KSTR</div></div>
+<div class="logos"><div class="logo-ph">Asan Medical Center</div><div class="logo-ph">Severance Hospital</div><div class="logo-ph">NIH / NIAID</div><div class="logo-ph">Intermed</div><div class="logo-ph">DEEP NOID</div><div class="logo-ph">Promedius</div><div class="logo-ph">KSTR</div></div>
 </div></section>
 
 <!-- CONTACT -->
